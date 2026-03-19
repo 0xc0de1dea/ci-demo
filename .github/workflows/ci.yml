@@ -38,6 +38,10 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+            
+      # ⭐⭐⭐ 여기 추가 ⭐⭐⭐
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
 
       # Step 4: 테스트 실행 (CI의 핵심!)
       - name: Run tests
